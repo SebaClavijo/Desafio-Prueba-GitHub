@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*Mobile*/
+@media screen and (max-width: 480px){
+    footer{
+        background-color: blueviolet;
+    }
+    main{
+        background-color: blue;
+    }
+    
+    .grid-item{
+        font-size: 30px;
+    }
+}
+
+/*Tablet*/
+@media screen and (min-width: 481px) and (max-width: 960px){
+    footer{
+        background-color: coral;
+    }
+}
+
+/*Desktop*/
+@media screen and (min-width: 961px){
+    body{
+        background-color: yellow;
+    }
+}
+
+h1{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin: 30px 0;
+    border: 5px dotted springgreen;
+    border-radius: 20px;
+}
+
+.grid-container{
+    display: grid;
+    border: 2px solid black;
+
+    /*Con la funcion repeat evito escribir 4 veces las mededidas*/
+    grid-template-rows: repeat(4, 150px);
+    grid-template-columns: repeat(4, 1fr);
+    
+    /*Esto es para definir las areas de las columnas y filas*/
+    grid-template-areas: "section-one section-one section-one section-one"
+    "section-two section-two section-two aside"
+    "section-three section-three section-three aside";
+
+    /*Es una especie de margin entre columnas*/
+    gap: 30px;
+}
+
+.grid-container-footer{
+    display: grid;
+    border: 3px solid rebeccapurple;
+    grid-template-rows: repeat(2, 100px);
+    grid-template-columns: repeat(2, 100px);
+    gap: 30px;
+    grid-template-areas: "footer-one footer-one"
+    "footer-two footer-two";
+}
+
+.grid-item{
+    border: 2px solid black;
+    font-size: 20px;
+}
+
+.grid-footer{
+    border: 3px solid rebeccapurple;
+}
+
+/*Esta pseudoclase es para decirle que el primer elemento empiece en una fila (o columna) y termine en otra*/
+.grid-item:first-child{
+    grid-area: section-one;
+}
+
+/*.grid-item:nth-child(2){} - es para indicar desde que elemento quiero que arranque*/
+
+.grid-item:nth-child(2){
+    grid-area: section-two;
+}
+
+.grid-item:nth-child(3){
+    grid-area: aside;
+}
+
+.grid-item:nth-child(4){
+    grid-area: section-three;
+}
+
+.grid-footer:nth-child(1){
+    grid-area: footer-one;
+}
+
+.grid-footer:nth-child(2){
+    grid-area: footer-two;
+}
+
+
